@@ -1,0 +1,20 @@
+{
+  "name": "createsens",
+  "interface": {
+    "displayName": "Createsens"
+  },
+  "plugins": [
+    {
+      "name": "all-metrics",
+      "source": {
+        "source": "local",
+        "path": "./plugins/all-metrics"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data & Analytics"
+    }
+  ]
+}

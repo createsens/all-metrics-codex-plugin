@@ -1,0 +1,18 @@
+interface:
+  display_name: All Metrics Keyword Planner
+  short_description: "\u0421\u0435\u043C\u0430\u043D\u0442\u0438\u043A\u0430 \u0438\
+    \ \u043F\u0440\u043E\u0433\u043D\u043E\u0437\u044B Google Keyword Planner"
+  default_prompt: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439 $all-metrics-keyword-planner,\
+    \ \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0431\u0440\u0430\u0442\u044C \u043A\
+    \u043B\u044E\u0447\u0435\u0432\u044B\u0435 \u0441\u043B\u043E\u0432\u0430, \u0447\
+    \u0430\u0441\u0442\u043E\u0442\u043D\u043E\u0441\u0442\u044C \u0438 \u043F\u0440\
+    \u043E\u0433\u043D\u043E\u0437 \u0447\u0435\u0440\u0435\u0437 All Metrics."
+dependencies:
+  tools:
+  - type: mcp
+    value: all_metrics
+    description: "All Metrics MCP \u0434\u043B\u044F Google Keyword Planner"
+    transport: streamable_http
+    url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

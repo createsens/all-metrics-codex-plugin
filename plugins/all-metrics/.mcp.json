@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "all_metrics": {
+      "title": "All Metrics",
+      "description": "Реклама, веб-аналитика, SEO, CRM и Google Keyword Planner.",
+      "type": "http",
+      "url": "https://test.abeslab.by/hub/mcp",
+      "icons": [
+        {
+          "src": "./assets/all-metrics.png",
+          "mimeType": "image/png",
+          "sizes": [
+            "124x124"
+          ]
+        }
+      ]
+    }
+  }
+}

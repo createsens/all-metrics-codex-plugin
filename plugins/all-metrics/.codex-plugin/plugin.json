@@ -1,0 +1,44 @@
+{
+  "name": "all-metrics",
+  "version": "1.0.0",
+  "description": "Аналитика рекламы, веб-аналитики, SEO, CRM и Google Keyword Planner через MCP All Metrics.",
+  "author": {
+    "name": "Createsens",
+    "url": "https://github.com/createsens"
+  },
+  "homepage": "https://test.abeslab.by/hub",
+  "repository": "https://github.com/createsens/all-metrics-codex-plugin",
+  "license": "MIT",
+  "keywords": [
+    "analytics",
+    "google ads",
+    "yandex direct",
+    "ga4",
+    "metrika",
+    "search console",
+    "bitrix24",
+    "keyword planner"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "All Metrics",
+    "shortDescription": "Реклама, аналитика, CRM и Keyword Planner",
+    "longDescription": "All Metrics подключает Codex к выбранным аккаунтам Google Ads, Яндекс Директа, GA4, Яндекс Метрики, Google Search Console и Bitrix24. Плагин готовит доказательные отчёты, сравнивает периоды, рассчитывает CPL, ROAS и ROMI, а также исследует семантику и прогнозы через Google Keyword Planner.",
+    "developerName": "Createsens",
+    "category": "Data & Analytics",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://test.abeslab.by/hub",
+    "defaultPrompt": [
+      "Проанализируй рекламу за текущий месяц и сравни с прошлым.",
+      "Покажи заявки, продажи, CPL, ROAS и ROMI по данным CRM.",
+      "Собери ключевые слова и прогноз через Google Keyword Planner."
+    ],
+    "brandColor": "#08DDD8",
+    "composerIcon": "./assets/all-metrics.png",
+    "logo": "./assets/all-metrics.png"
+  },
+  "mcpServers": "./.mcp.json"
+}
