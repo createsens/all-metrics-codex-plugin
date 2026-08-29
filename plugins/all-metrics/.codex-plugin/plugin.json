@@ -1,7 +1,7 @@
 {
   "name": "all-metrics",
-  "version": "1.1.0",
-  "description": "Аналитика рекламы, веб-аналитики, SEO, CRM и Google Keyword Planner через MCP All Metrics.",
+  "version": "3.1.2",
+  "description": "Read-only аналитика рекламы, веб-аналитики, SEO, CRM и технический аудит сайтов через All Metrics.",
   "author": {
     "name": "Createsens",
     "url": "https://github.com/createsens"
@@ -11,6 +11,8 @@
   "license": "MIT",
   "keywords": [
     "analytics",
+    "website audit",
+    "seo",
     "google ads",
     "yandex direct",
     "ga4",
@@ -20,10 +22,11 @@
     "keyword planner"
   ],
   "skills": "./skills/",
+  "apps": "./.app.json",
   "interface": {
-    "displayName": "All Metrics",
-    "shortDescription": "Реклама, аналитика, CRM и Keyword Planner",
-    "longDescription": "All Metrics подключает Codex к выбранным аккаунтам Google Ads, Яндекс Директа, GA4, Яндекс Метрики, Google Search Console и Bitrix24. Плагин готовит доказательные отчёты, сравнивает периоды, рассчитывает CPL, ROAS и ROMI, а также исследует семантику и прогнозы через Google Keyword Planner.",
+    "displayName": "AllMetrics 3",
+    "shortDescription": "Реклама, аналитика, SEO-аудит и CRM",
+    "longDescription": "AllMetrics 3 подключает ChatGPT и Codex к read-only MCP All Metrics. Плагин анализирует Google Ads, Яндекс Директ, GA4, Яндекс Метрику, Search Console, Яндекс Вебмастер, Bitrix24 и CallRail, работает с Google Keyword Planner и читает сохранённые технические SEO-аудиты Website со страницами, проблемами, проверками, PSI/CrUX, robots.txt, sitemap и скриншотами.",
     "developerName": "Createsens",
     "category": "Data & Analytics",
     "capabilities": [
@@ -33,7 +36,7 @@
     "websiteURL": "https://test.abeslab.by/hub",
     "defaultPrompt": [
       "Проанализируй рекламу за текущий месяц и сравни с прошлым.",
-      "Покажи заявки, продажи, CPL, ROAS и ROMI по данным CRM.",
+      "Покажи последний сохранённый SEO-аудит сайта и главные проблемы.",
       "Собери ключевые слова и прогноз через Google Keyword Planner."
     ],
     "brandColor": "#08DDD8",
@@ -42,3 +45,4 @@
   },
   "mcpServers": "./.mcp.json"
 }
+
