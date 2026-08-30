@@ -1,6 +1,6 @@
 # All Metrics for Codex
 
-Версия плагина и production MCP: `3.1.2`.
+Версия плагина и production MCP: `3.1.3`.
 
 Плагин подключает ChatGPT и Codex к удалённому MCP All Metrics и добавляет готовые workflow:
 
