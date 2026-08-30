@@ -1,10 +1,10 @@
 # All Metrics for Codex
 
-Версия плагина и production MCP: `3.1.3`.
+Версия плагина и production MCP: `3.2.0`.
 
 Плагин подключает ChatGPT и Codex к удалённому MCP All Metrics и добавляет готовые workflow:
 
-- анализ Google Ads, Яндекс Директа, GA4, Яндекс Метрики, Search Console и Bitrix24;
+- анализ Google Ads, Google Business Profile, Яндекс Директа, GA4, Яндекс Метрики, Search Console и Bitrix24;
 - исследование ключевых слов и прогнозы Google Keyword Planner;
 - чтение сохранённых технических SEO-аудитов Website, включая страницы, проблемы, проверки, PSI/CrUX, robots.txt, sitemap и скриншоты.
 
@@ -44,6 +44,7 @@ GitHub-пакет подключается непосредственно к MCP
 - Google Keyword Planner;
 - Google Analytics 4;
 - Google Search Console;
+- Google Business Profile;
 - Яндекс Директ;
 - Яндекс Метрика;
 - CRM Bitrix24.
@@ -51,4 +52,3 @@ GitHub-пакет подключается непосредственно к MCP
 ## Безопасность
 
 Плагин предназначен только для чтения и аналитики. Он не изменяет рекламные кампании, подключения, CRM или Keyword Plans. Перед provider-запросом skill использует только ресурсы с `queryable=true`; отключённые ресурсы повторно не вызываются.
-

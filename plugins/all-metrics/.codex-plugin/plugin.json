@@ -1,6 +1,6 @@
 {
   "name": "all-metrics",
-  "version": "3.1.3",
+  "version": "3.2.0",
   "description": "Read-only аналитика рекламы, веб-аналитики, SEO, CRM и технический аудит сайтов через All Metrics.",
   "author": {
     "name": "Createsens",
@@ -18,6 +18,7 @@
     "ga4",
     "metrika",
     "search console",
+    "google business profile",
     "bitrix24",
     "keyword planner"
   ],
@@ -26,7 +27,7 @@
   "interface": {
     "displayName": "AllMetrics 3",
     "shortDescription": "Реклама, аналитика, SEO-аудит и CRM",
-    "longDescription": "AllMetrics 3 подключает ChatGPT и Codex к read-only MCP All Metrics. Плагин анализирует Google Ads, Яндекс Директ, GA4, Яндекс Метрику, Search Console, Яндекс Вебмастер, Bitrix24 и CallRail, работает с Google Keyword Planner и читает сохранённые технические SEO-аудиты Website со страницами, проблемами, проверками, PSI/CrUX, robots.txt, sitemap и скриншотами.",
+    "longDescription": "AllMetrics 3 подключает ChatGPT и Codex к read-only MCP All Metrics. Плагин анализирует Google Ads, Google Business Profile, Яндекс Директ, GA4, Яндекс Метрику, Search Console, Яндекс Вебмастер, Bitrix24 и CallRail, работает с Google Keyword Planner и читает сохранённые технические SEO-аудиты Website со страницами, проблемами, проверками, PSI/CrUX, robots.txt, sitemap и скриншотами.",
     "developerName": "Createsens",
     "category": "Data & Analytics",
     "capabilities": [
@@ -45,4 +46,3 @@
   },
   "mcpServers": "./.mcp.json"
 }
-
