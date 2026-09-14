@@ -1,0 +1,13 @@
+interface:
+  display_name: "All Metrics Website Audit"
+  short_description: "Технический SEO-аудит сайта и сохранённые обходы"
+  default_prompt: "Используй $all-metrics-website-audit, чтобы показать последний сохранённый аудит сайта и главные проблемы."
+dependencies:
+  tools:
+    - type: mcp
+      value: all_metrics
+      description: "Read-only MCP All Metrics"
+      transport: streamable_http
+      url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,13 @@
+interface:
+  display_name: "All Metrics PPC Audit"
+  short_description: "Аудит настроек и эффективности Google Ads и Яндекс Директа"
+  default_prompt: "Используй $all-metrics-ppc-audit, чтобы провести аудит рекламного кабинета и найти потери бюджета."
+dependencies:
+  tools:
+    - type: mcp
+      value: all_metrics
+      description: "Read-only MCP All Metrics"
+      transport: streamable_http
+      url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

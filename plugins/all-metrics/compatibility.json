@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "plugin": "all-metrics",
+  "plugin_version": "3.3.0",
+  "updated": "2026-09-14",
+  "mcp": {
+    "server": "all_metrics",
+    "url": "https://test.abeslab.by/hub/mcp",
+    "transport": "streamable_http",
+    "auth": "oauth2_pkce",
+    "scope": "mcp:use",
+    "min_server_version": "3.0.0",
+    "verified_server_versions": [
+      "3.2.0"
+    ],
+    "baseline": {
+      "tool_count": 80,
+      "source_count": 12,
+      "website_check_count": 131
+    }
+  },
+  "canonical": {
+    "sources": [
+      "google_ads",
+      "google_keyword_planner",
+      "google_analytics",
+      "google_search_console",
+      "google_business_profile",
+      "yandex_direct",
+      "yandex_metrica",
+      "yandex_webmaster",
+      "yandex_wordstat",
+      "bitrix24",
+      "callrail",
+      "website"
+    ],
+    "tools": [
+      "analyze_audit_bundle",
+      "analyze_settings_snapshot",
+      "callrail",
+      "get_audit_methodology",
+      "get_current_user",
+      "get_export_link",
+      "get_query_results",
+      "get_query_status",
+      "get_resource_health",
+      "get_settings_snapshot_export_link",
+      "get_settings_snapshot_results",
+      "get_settings_snapshot_status",
+      "google_ads_change_history",
+      "google_ads_get_campaign_by_id",
+      "google_ads_list_campaigns",
+      "google_ads_list_customer_hierarchy",
+      "google_ads_run_gaql",
+      "google_ads_settings",
+      "google_ads_validate_gaql",
+      "google_analytics_settings",
+      "google_business_profile",
+      "keyword_planner",
+      "list_connections",
+      "list_fields",
+      "list_resources",
+      "list_saved_queries",
+      "list_setting_capabilities",
+      "list_sources",
+      "preview_data",
+      "run_saved_query",
+      "start_query",
+      "start_settings_snapshot",
+      "website",
+      "yandex_direct_ad_performance",
+      "yandex_direct_audit_campaign",
+      "yandex_direct_audit_keyword_conflicts",
+      "yandex_direct_audit_tracking",
+      "yandex_direct_check_changes",
+      "yandex_direct_diff_campaign",
+      "yandex_direct_get_ad",
+      "yandex_direct_get_ad_extensions",
+      "yandex_direct_get_ad_group",
+      "yandex_direct_get_ad_groups",
+      "yandex_direct_get_ads",
+      "yandex_direct_get_audience_targets",
+      "yandex_direct_get_autotargeting",
+      "yandex_direct_get_bid_modifiers",
+      "yandex_direct_get_bids",
+      "yandex_direct_get_business",
+      "yandex_direct_get_campaign",
+      "yandex_direct_get_campaign_goals",
+      "yandex_direct_get_campaign_settings",
+      "yandex_direct_get_campaign_snapshot",
+      "yandex_direct_get_campaign_strategy",
+      "yandex_direct_get_dictionaries",
+      "yandex_direct_get_geo_settings",
+      "yandex_direct_get_keywords",
+      "yandex_direct_get_negative_keywords",
+      "yandex_direct_get_retargeting",
+      "yandex_direct_get_search_queries",
+      "yandex_direct_get_sitelinks",
+      "yandex_direct_get_strategy",
+      "yandex_direct_get_time_targeting",
+      "yandex_direct_keyword_performance",
+      "yandex_direct_list_ad_groups",
+      "yandex_direct_list_ads",
+      "yandex_direct_list_campaign_changes",
+      "yandex_direct_list_campaigns",
+      "yandex_direct_list_keywords",
+      "yandex_direct_list_negative_keywords",
+      "yandex_direct_list_search_queries",
+      "yandex_direct_report",
+      "yandex_direct_settings",
+      "yandex_metrica_get_goal",
+      "yandex_metrica_list_goals",
+      "yandex_metrica_run_goal_report",
+      "yandex_metrica_run_visits_report",
+      "yandex_metrica_settings",
+      "yandex_webmaster",
+      "yandex_wordstat"
+    ]
+  },
+  "detection": {
+    "order": [
+      "tools/list",
+      "get_current_user",
+      "list_sources",
+      "list_connections",
+      "list_resources"
+    ],
+    "rules": [
+      "Считать capability доступной только если её tool реально присутствует в tools/list текущей сессии.",
+      "Не выводить наличие источника из названия skill, документации или прошлой сессии.",
+      "Источник считается пригодным только при наличии подключения со статусом connected и хотя бы одного queryable ресурса.",
+      "При отсутствии обязательного tool skill обязан остановиться и назвать точное имя недостающего tool и требуемую версию сервера.",
+      "При отсутствии опционального источника skill продолжает работу и явно помечает раздел как недоступный."
+    ]
+  },
+  "skills": {
+    "analyze-all-metrics": {
+      "min_server_version": "3.0.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "list_fields",
+        "preview_data",
+        "start_query",
+        "get_query_status",
+        "get_query_results"
+      ],
+      "optional_tools": [
+        "list_saved_queries",
+        "run_saved_query",
+        "get_export_link",
+        "google_business_profile",
+        "callrail"
+      ],
+      "required_sources_any_of": [
+        "google_ads",
+        "yandex_direct",
+        "google_analytics",
+        "yandex_metrica"
+      ],
+      "optional_sources": [
+        "google_search_console",
+        "google_business_profile",
+        "bitrix24",
+        "callrail"
+      ],
+      "degrade": "Без Bitrix24 и CallRail отчёт строится без CPL, CPS, ROAS и ROI, и это указывается явно."
+    },
+    "all-metrics-keyword-planner": {
+      "min_server_version": "3.0.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "keyword_planner",
+        "get_query_status",
+        "get_query_results"
+      ],
+      "optional_tools": [
+        "get_export_link",
+        "yandex_wordstat"
+      ],
+      "required_sources_any_of": [
+        "google_keyword_planner"
+      ],
+      "optional_sources": [
+        "yandex_wordstat"
+      ],
+      "degrade": "Без google_keyword_planner skill не подменяет данные Wordstat-ом без явного согласия пользователя."
+    },
+    "all-metrics-ppc-audit": {
+      "min_server_version": "3.2.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "list_setting_capabilities"
+      ],
+      "optional_tools": [
+        "google_ads_list_customer_hierarchy",
+        "google_ads_list_campaigns",
+        "google_ads_get_campaign_by_id",
+        "google_ads_run_gaql",
+        "google_ads_validate_gaql",
+        "google_ads_change_history",
+        "google_ads_settings",
+        "yandex_direct_get_campaign_snapshot",
+        "yandex_direct_audit_campaign",
+        "yandex_direct_audit_tracking",
+        "yandex_direct_audit_keyword_conflicts",
+        "yandex_direct_list_campaigns",
+        "yandex_direct_report",
+        "yandex_direct_settings",
+        "start_settings_snapshot",
+        "get_settings_snapshot_status",
+        "get_settings_snapshot_results",
+        "analyze_settings_snapshot",
+        "get_audit_methodology"
+      ],
+      "required_sources_any_of": [
+        "google_ads",
+        "yandex_direct"
+      ],
+      "optional_sources": [
+        "google_analytics",
+        "yandex_metrica",
+        "bitrix24",
+        "callrail"
+      ],
+      "degrade": "Аудит выполняется по фактически доступной платформе; вторая платформа помечается как not_connected, а не как отсутствие проблем."
+    },
+    "all-metrics-website-audit": {
+      "min_server_version": "3.1.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "website"
+      ],
+      "optional_tools": [
+        "analyze_audit_bundle",
+        "get_audit_methodology",
+        "yandex_webmaster",
+        "get_export_link"
+      ],
+      "required_sources_any_of": [
+        "website"
+      ],
+      "optional_sources": [
+        "google_search_console",
+        "yandex_webmaster",
+        "google_analytics"
+      ],
+      "degrade": "Без Search Console и Вебмастера раздел индексации строится только по crawl-доказательствам и помечается как неполный."
+    },
+    "all-metrics-cross-source-report": {
+      "min_server_version": "3.2.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "list_fields",
+        "preview_data",
+        "start_query",
+        "get_query_status",
+        "get_query_results"
+      ],
+      "optional_tools": [
+        "website",
+        "google_business_profile",
+        "callrail",
+        "keyword_planner",
+        "get_export_link",
+        "analyze_audit_bundle"
+      ],
+      "required_sources_any_of": [
+        "google_ads",
+        "yandex_direct",
+        "google_analytics",
+        "yandex_metrica"
+      ],
+      "optional_sources": [
+        "google_ads",
+        "google_keyword_planner",
+        "google_analytics",
+        "google_search_console",
+        "google_business_profile",
+        "yandex_direct",
+        "yandex_metrica",
+        "yandex_webmaster",
+        "yandex_wordstat",
+        "bitrix24",
+        "callrail",
+        "website"
+      ],
+      "degrade": "Каждый отсутствующий источник попадает в таблицу покрытия со статусом missing и причиной; раздел не выдумывается."
+    },
+    "all-metrics-diagnostics": {
+      "min_server_version": "3.0.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources"
+      ],
+      "optional_tools": [
+        "get_resource_health",
+        "list_setting_capabilities",
+        "list_fields"
+      ],
+      "required_sources_any_of": [],
+      "optional_sources": [
+        "google_ads",
+        "google_keyword_planner",
+        "google_analytics",
+        "google_search_console",
+        "google_business_profile",
+        "yandex_direct",
+        "yandex_metrica",
+        "yandex_webmaster",
+        "yandex_wordstat",
+        "bitrix24",
+        "callrail",
+        "website"
+      ],
+      "degrade": "Skill работает и на урезанном сервере: он предназначен именно для диагностики расхождений."
+    }
+  }
+}

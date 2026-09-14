@@ -1,0 +1,13 @@
+interface:
+  display_name: "All Metrics Diagnostics"
+  short_description: "Проверка подключения, версии и доступных источников"
+  default_prompt: "Используй $all-metrics-diagnostics, чтобы проверить подключение All Metrics и показать доступные источники."
+dependencies:
+  tools:
+    - type: mcp
+      value: all_metrics
+      description: "Read-only MCP All Metrics"
+      transport: streamable_http
+      url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

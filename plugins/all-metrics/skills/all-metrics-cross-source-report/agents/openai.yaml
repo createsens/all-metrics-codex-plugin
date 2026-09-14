@@ -1,0 +1,13 @@
+interface:
+  display_name: "All Metrics Cross-Source Report"
+  short_description: "Сквозной отчёт по рекламе, аналитике, звонкам и CRM"
+  default_prompt: "Используй $all-metrics-cross-source-report, чтобы собрать сквозной отчёт за текущий месяц с CPL, ROAS и ROI."
+dependencies:
+  tools:
+    - type: mcp
+      value: all_metrics
+      description: "Read-only MCP All Metrics"
+      transport: streamable_http
+      url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

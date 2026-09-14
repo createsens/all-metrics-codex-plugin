@@ -1,0 +1,41 @@
+name: plugin-ci
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Манифесты, skills и совместимость
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Валидация манифестов и skills
+        run: node scripts/validate-plugin.mjs
+
+      - name: Тесты слоя совместимости
+        run: node scripts/capability-tests.mjs
+
+      - name: Проверка JSON-файлов на синтаксис
+        run: |
+          set -e
+          for f in $(git ls-files '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || { echo "Невалидный JSON: $f"; exit 1; }
+          done
+          echo "Все JSON-файлы валидны"
+
+      - name: Проверка YAML-манифестов Codex
+        run: |
+          set -e
+          for f in $(git ls-files 'plugins/**/agents/openai.yaml'); do
+            grep -q 'display_name' "$f" || { echo "Нет display_name: $f"; exit 1; }
+            grep -q 'type: mcp' "$f" || { echo "Нет зависимости MCP: $f"; exit 1; }
+          done
+          echo "Все agents/openai.yaml на месте"
