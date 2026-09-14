@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "all-metrics",
+  "version": "3.3.0",
+  "description": "AllMetrics 3 — read-only MCP-доступ к Google Ads, Keyword Planner, GA4, Search Console, Google Business Profile, Яндекс Директу, Метрике, Вебмастеру, Вордстату, Bitrix24, CallRail и сохранённым техническим SEO-аудитам сайтов. Даёт готовые workflow для PPC-аудита, SEO-аудита сайта, семантики и сквозного отчёта с CRM-атрибуцией.",
+  "author": {
+    "name": "Createsens",
+    "url": "https://github.com/createsens"
+  },
+  "homepage": "https://test.abeslab.by/hub",
+  "repository": "https://github.com/createsens/all-metrics-codex-plugin",
+  "license": "MIT",
+  "keywords": [
+    "analytics",
+    "ppc",
+    "seo",
+    "website-audit",
+    "google-ads",
+    "yandex-direct",
+    "ga4",
+    "search-console",
+    "google-business-profile",
+    "keyword-planner",
+    "bitrix24",
+    "callrail",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

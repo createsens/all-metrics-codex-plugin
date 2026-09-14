@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "createsens",
+  "owner": {
+    "name": "Createsens",
+    "url": "https://github.com/createsens"
+  },
+  "metadata": {
+    "description": "Плагины Createsens для read-only аналитики рекламы, веб-аналитики, SEO и CRM через All Metrics.",
+    "version": "3.3.0"
+  },
+  "plugins": [
+    {
+      "name": "all-metrics",
+      "source": "./plugins/all-metrics",
+      "description": "Read-only аналитика Google Ads, GA4, Search Console, Google Business Profile, Яндекс Директа, Метрики, Вебмастера, Вордстата, Bitrix24, CallRail и технический SEO-аудит сайтов через MCP All Metrics.",
+      "version": "3.3.0",
+      "author": {
+        "name": "Createsens",
+        "url": "https://github.com/createsens"
+      },
+      "homepage": "https://test.abeslab.by/hub",
+      "repository": "https://github.com/createsens/all-metrics-codex-plugin",
+      "license": "MIT",
+      "category": "data-analytics",
+      "keywords": [
+        "analytics",
+        "ppc",
+        "seo",
+        "website-audit",
+        "google-ads",
+        "yandex-direct",
+        "ga4",
+        "search-console",
+        "google-business-profile",
+        "keyword-planner",
+        "bitrix24",
+        "callrail",
+        "mcp"
+      ],
+      "strict": false
+    }
+  ]
+}

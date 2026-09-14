@@ -1,0 +1,198 @@
+{
+  "name": "legacy-3.0.0",
+  "description": "Сервер All Metrics 3.0.0: нет Website, Google Business Profile и слоя настроек.",
+  "server_version": "3.0.0",
+  "tools": [
+    "callrail",
+    "get_current_user",
+    "get_export_link",
+    "get_query_results",
+    "get_query_status",
+    "get_resource_health",
+    "google_ads_get_campaign_by_id",
+    "google_ads_list_campaigns",
+    "google_ads_list_customer_hierarchy",
+    "google_ads_run_gaql",
+    "google_ads_validate_gaql",
+    "keyword_planner",
+    "list_connections",
+    "list_fields",
+    "list_resources",
+    "list_saved_queries",
+    "list_sources",
+    "preview_data",
+    "run_saved_query",
+    "start_query",
+    "yandex_direct_ad_performance",
+    "yandex_direct_audit_campaign",
+    "yandex_direct_audit_keyword_conflicts",
+    "yandex_direct_audit_tracking",
+    "yandex_direct_check_changes",
+    "yandex_direct_diff_campaign",
+    "yandex_direct_get_ad",
+    "yandex_direct_get_ad_extensions",
+    "yandex_direct_get_ad_group",
+    "yandex_direct_get_ad_groups",
+    "yandex_direct_get_ads",
+    "yandex_direct_get_audience_targets",
+    "yandex_direct_get_autotargeting",
+    "yandex_direct_get_bid_modifiers",
+    "yandex_direct_get_bids",
+    "yandex_direct_get_business",
+    "yandex_direct_get_campaign",
+    "yandex_direct_get_campaign_goals",
+    "yandex_direct_get_campaign_settings",
+    "yandex_direct_get_campaign_snapshot",
+    "yandex_direct_get_campaign_strategy",
+    "yandex_direct_get_dictionaries",
+    "yandex_direct_get_geo_settings",
+    "yandex_direct_get_keywords",
+    "yandex_direct_get_negative_keywords",
+    "yandex_direct_get_retargeting",
+    "yandex_direct_get_search_queries",
+    "yandex_direct_get_sitelinks",
+    "yandex_direct_get_strategy",
+    "yandex_direct_get_time_targeting",
+    "yandex_direct_keyword_performance",
+    "yandex_direct_list_ad_groups",
+    "yandex_direct_list_ads",
+    "yandex_direct_list_campaign_changes",
+    "yandex_direct_list_campaigns",
+    "yandex_direct_list_keywords",
+    "yandex_direct_list_negative_keywords",
+    "yandex_direct_list_search_queries",
+    "yandex_direct_report",
+    "yandex_metrica_get_goal",
+    "yandex_metrica_list_goals",
+    "yandex_metrica_run_goal_report",
+    "yandex_metrica_run_visits_report",
+    "yandex_webmaster",
+    "yandex_wordstat"
+  ],
+  "sources": [
+    "google_ads",
+    "google_keyword_planner",
+    "google_analytics",
+    "google_search_console",
+    "yandex_direct",
+    "yandex_metrica",
+    "yandex_webmaster",
+    "yandex_wordstat",
+    "bitrix24",
+    "callrail"
+  ],
+  "connections": [
+    {
+      "source": "google_ads",
+      "status": "connected",
+      "connection_id": "conn_google_ads"
+    },
+    {
+      "source": "google_keyword_planner",
+      "status": "connected",
+      "connection_id": "conn_google_keyword_planner"
+    },
+    {
+      "source": "google_analytics",
+      "status": "connected",
+      "connection_id": "conn_google_analytics"
+    },
+    {
+      "source": "google_search_console",
+      "status": "connected",
+      "connection_id": "conn_google_search_console"
+    },
+    {
+      "source": "yandex_direct",
+      "status": "connected",
+      "connection_id": "conn_yandex_direct"
+    },
+    {
+      "source": "yandex_metrica",
+      "status": "connected",
+      "connection_id": "conn_yandex_metrica"
+    },
+    {
+      "source": "yandex_webmaster",
+      "status": "connected",
+      "connection_id": "conn_yandex_webmaster"
+    },
+    {
+      "source": "yandex_wordstat",
+      "status": "connected",
+      "connection_id": "conn_yandex_wordstat"
+    },
+    {
+      "source": "bitrix24",
+      "status": "connected",
+      "connection_id": "conn_bitrix24"
+    },
+    {
+      "source": "callrail",
+      "status": "connected",
+      "connection_id": "conn_callrail"
+    }
+  ],
+  "resources": [
+    {
+      "source": "google_ads",
+      "id": "res_google_ads",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "google_keyword_planner",
+      "id": "res_google_keyword_planner",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "google_analytics",
+      "id": "res_google_analytics",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "google_search_console",
+      "id": "res_google_search_console",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "yandex_direct",
+      "id": "res_yandex_direct",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "yandex_metrica",
+      "id": "res_yandex_metrica",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "yandex_webmaster",
+      "id": "res_yandex_webmaster",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "yandex_wordstat",
+      "id": "res_yandex_wordstat",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "bitrix24",
+      "id": "res_bitrix24",
+      "queryable": true,
+      "selected": true
+    },
+    {
+      "source": "callrail",
+      "id": "res_callrail",
+      "queryable": true,
+      "selected": true
+    }
+  ]
+}

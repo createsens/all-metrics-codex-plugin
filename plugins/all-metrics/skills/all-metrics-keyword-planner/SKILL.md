@@ -7,6 +7,13 @@ description: "Исследовать семантику через Google Keywor
 
 Работать только через MCP-инструменты плагина All Metrics. Не обращаться к Google Ads API напрямую, не запрашивать OAuth-токены и не изменять Keyword Plans, кампании, группы, объявления или ключевые слова.
 
+## Проверить совместимость перед работой
+
+1. Прочитать фактический список инструментов текущей сессии. Обязательные: `get_current_user`, `list_sources`, `list_connections`, `list_resources`, `keyword_planner`, `get_query_status`, `get_query_results`. Минимальная версия сервера All Metrics — 3.0.0.
+2. Если `keyword_planner` отсутствует, остановиться и сообщить, что сервер All Metrics не предоставляет этот инструмент и требуется обновление. Не подменять его Wordstat-ом, внешним сервисом или оценкой без явного согласия пользователя.
+3. Полный контракт требований — [compatibility.json](../../compatibility.json), раздел `skills["all-metrics-keyword-planner"]`.
+4. Если подключение не работает, сначала выполнить `all-metrics-diagnostics`.
+
 ## Найти источник и кабинет
 
 1. Вызвать `list_sources` и убедиться, что доступен источник `google_keyword_planner`.
