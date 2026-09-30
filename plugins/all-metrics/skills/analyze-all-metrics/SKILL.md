@@ -28,6 +28,8 @@ description: Получать через read-only MCP All Metrics отчёты 
 
 ## Найти объект анализа
 
+Если доступны `list_businesses`, `list_business_resources` и `get_business_context`, сначала использовать подтверждённый Business context и конкретные связи ресурсов. Для брифа, Serper SERP и конкурентов использовать `all-metrics-business-research`; не смешивать выдачу с Website crawl или частотностью.
+
 1. Вызвать `list_sources`, `list_connections` и `list_resources`.
 2. Найти сервис, бренд, домен, аккаунт или кампанию без учёта регистра по полному и частичному совпадению названия. Учитывать варианты написания и домены.
 3. Искать рекламу одновременно в Google Ads и Яндекс Директе, если пользователь не ограничил платформу.

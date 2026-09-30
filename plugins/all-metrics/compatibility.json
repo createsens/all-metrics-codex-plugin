@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.4.0",
+  "plugin_version": "3.5.0",
   "updated": "2026-09-30",
   "mcp": {
     "server": "all_metrics",
@@ -14,8 +14,8 @@
       "3.2.0"
     ],
     "baseline": {
-      "tool_count": 80,
-      "source_count": 12,
+      "tool_count": 84,
+      "source_count": 13,
       "website_check_count": 131
     }
   },
@@ -32,9 +32,14 @@
       "yandex_wordstat",
       "bitrix24",
       "callrail",
-      "website"
+      "website",
+      "google_serp"
     ],
     "tools": [
+      "list_businesses",
+      "list_business_resources",
+      "get_business_context",
+      "google_serp",
       "analyze_audit_bundle",
       "analyze_settings_snapshot",
       "callrail",
@@ -134,6 +139,14 @@
     ]
   },
   "skills": {
+    "all-metrics-business-research": {
+      "min_server_version": "3.4.0",
+      "required_tools": ["get_current_user", "list_sources", "list_connections", "list_resources", "list_businesses", "list_business_resources", "get_business_context", "google_serp", "website"],
+      "optional_tools": ["keyword_planner", "yandex_wordstat"],
+      "required_sources_any_of": ["google_serp"],
+      "optional_sources": ["website", "google_keyword_planner", "yandex_wordstat"],
+      "degrade": "Без Serper новые SERP не собирать; читать сохранённый контекст бизнеса. Отсутствие данных не является отсутствием спроса."
+    },
     "analyze-all-metrics": {
       "min_server_version": "3.0.0",
       "required_tools": [

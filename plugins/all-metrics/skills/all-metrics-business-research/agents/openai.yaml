@@ -1,0 +1,13 @@
+interface:
+  display_name: "AllMetrics Business Research"
+  short_description: "Бриф бизнеса, SERP-конкуренты и новые seed-фразы"
+  default_prompt: "Используй $all-metrics-business-research для исследования бизнеса, SERP-конкурентов и семантики с доказательствами и контролем расходов."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "all_metrics"
+      description: "AllMetrics MCP: Business context, Google SERP и Website"
+      transport: "streamable_http"
+      url: "https://test.abeslab.by/hub/mcp"
+policy:
+  allow_implicit_invocation: true

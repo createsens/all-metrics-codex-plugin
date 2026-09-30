@@ -6,13 +6,13 @@ MCP-клиенты могут подключаться напрямую к се�
 
 | Что | Значение |
 | --- | --- |
-| Версия плагина | `3.4.0` |
-| Проверенная версия сервера All Metrics | `3.2.0` |
+| Версия плагина | `3.5.0` |
+| Версия нового серверного workflow | `3.4.0` (production-проверка фиксируется в AllMetrics PROJECT_STATE) |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
-| Источников | 12 |
-| MCP-инструментов | 80 |
-| Skills | 7 |
+| Источников | 13 |
+| MCP-инструментов | 84 |
+| Skills | 8 |
 
 Плагин работает только на чтение. Он не изменяет рекламные кампании, ставки, ключевые слова, подключения, CRM и Keyword Plans.
 
@@ -26,6 +26,7 @@ MCP-клиенты могут подключаться напрямую к се�
 | `all-metrics-website-audit` | Технический SEO-аудит сайта: сохранённые обходы, проблемы, robots, sitemap, PSI и CrUX, сравнение обходов |
 | `all-metrics-keyword-planner` | Семантика, частотность, сезонность, конкуренция, ставки и прогнозы Google Keyword Planner |
 | `all-metrics-wordstat` | Семантика Wordstat: популярные/похожие, динамика, регионы и контролируемые платные API-вызовы |
+| `all-metrics-business-research` | Подтверждённый Business context → Serper SERP → Website → отдельная проверка спроса |
 | `all-metrics-cross-source-report` | Сквозной отчёт по всем источникам: воронка, CPL, CPS, ROAS, ROI и полнота атрибуции |
 
 Источники: Google Ads, Google Keyword Planner, Google Analytics 4, Google Search Console, Google Business Profile, Яндекс Директ, Яндекс Метрика, Яндекс Вебмастер, Яндекс Вордстат, CRM Bitrix24, CallRail, Website.
