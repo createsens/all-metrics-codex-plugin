@@ -49,3 +49,6 @@
 - Обновление workflow Keyword Planner под MCP 1.4.
 - Документирование источника App All Metrics 2.
 - Первая публикация плагина All Metrics для Codex.
+# 3.5.0 — 2026-09-30
+
+Business context и read-only Serper SERP workflow для AllMetrics 3.4.0; внешний Website URL без предварительного источника. Восемь общих skills, 84 tools / 13 sources. Управление ключами и подтверждение брифа остаются в авторизованном UI; новые платные этапы только по отдельному подтверждению. Универсальный MCP transport без brand allowlist сохранён.

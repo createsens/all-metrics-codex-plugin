@@ -19,7 +19,7 @@ const fixture = (name) =>
   JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures', `${name}.json`), 'utf8'));
 
 const full = fixture('full-3.2.0');
-const latest = { ...full, server_version: '3.3.0' };
+const latest = { ...full, server_version: '3.4.0', tools: [...full.tools, 'list_businesses', 'list_business_resources', 'get_business_context', 'google_serp'], sources: [...full.sources, 'google_serp'], connections: [...full.connections, { source: 'google_serp', status: 'connected' }], resources: [...full.resources, { source: 'google_serp', queryable: true }] };
 const legacy = fixture('legacy-3.0.0');
 const empty = fixture('no-connections');
 const partial = fixture('partial-reauth');
@@ -66,7 +66,7 @@ for (const result of evaluateAll(compat, latest)) {
   assert(`full: ${result.skill} готов`, result.status === 'ready', result.blockers.join('; '));
   assert(
     `full: ${result.skill} не имеет недостающих обязательных инструментов`,
-    result.missing_required_tools.length === 0,
+      result.missing_required_tools.length === 0,
     result.missing_required_tools.join(', '),
   );
   assert(
@@ -118,7 +118,7 @@ assertEqual('legacy: keyword-planner работает на 3.0.0', legacyKp.stat
 
 // --------------------------------------------------------- нет подключений
 
-const emptyResults = evaluateAll(compat, empty);
+const emptyResults = evaluateAll(compat, { ...latest, connections: [], resources: [] });
 for (const result of emptyResults) {
   if (result.skill === 'all-metrics-diagnostics') {
     assertEqual('empty: diagnostics остаётся доступным', result.status, 'ready');
