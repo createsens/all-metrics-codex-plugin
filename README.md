@@ -1,16 +1,18 @@
 # All Metrics Agent Plugin
 
-Один плагин для двух экосистем: **Codex / ChatGPT** и **Claude Code / Claude Desktop**. Общий MCP-сервер, общие skills, два тонких манифеста.
+Общий MCP-сервер для совместимых клиентов без ограничения бренда.
+Codex и Claude Code используют общие skills и два тонких манифеста; другие
+MCP-клиенты могут подключаться напрямую к серверу.
 
 | Что | Значение |
 | --- | --- |
-| Версия плагина | `3.3.0` |
+| Версия плагина | `3.4.0` |
 | Проверенная версия сервера All Metrics | `3.2.0` |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
 | Источников | 12 |
 | MCP-инструментов | 80 |
-| Skills | 6 |
+| Skills | 7 |
 
 Плагин работает только на чтение. Он не изменяет рекламные кампании, ставки, ключевые слова, подключения, CRM и Keyword Plans.
 
@@ -23,6 +25,7 @@
 | `all-metrics-ppc-audit` | Read-only аудит настроек и эффективности Google Ads и Яндекс Директа по девяти блокам проверок |
 | `all-metrics-website-audit` | Технический SEO-аудит сайта: сохранённые обходы, проблемы, robots, sitemap, PSI и CrUX, сравнение обходов |
 | `all-metrics-keyword-planner` | Семантика, частотность, сезонность, конкуренция, ставки и прогнозы Google Keyword Planner |
+| `all-metrics-wordstat` | Семантика Wordstat: популярные/похожие, динамика, регионы и контролируемые платные API-вызовы |
 | `all-metrics-cross-source-report` | Сквозной отчёт по всем источникам: воронка, CPL, CPS, ROAS, ROI и полнота атрибуции |
 
 Источники: Google Ads, Google Keyword Planner, Google Analytics 4, Google Search Console, Google Business Profile, Яндекс Директ, Яндекс Метрика, Яндекс Вебмастер, Яндекс Вордстат, CRM Bitrix24, CallRail, Website.
@@ -64,6 +67,21 @@ https://test.abeslab.by/hub/mcp
 Авторизация пройдёт через OAuth. Инструменты All Metrics станут доступны, workflow из skills в этом режиме не применяются — для них используйте Claude Code или Codex.
 
 ## Структура репозитория
+
+### Другие MCP-клиенты: Gemini, Copilot и прочие
+
+Добавьте удалённый сервер **Streamable HTTP** по адресу
+`https://test.abeslab.by/hub/mcp`. Используйте OAuth discovery + PKCE S256 и
+подтвердите доступ на экране All Metrics. Сервер 3.3.0+ не ограничивает названия
+клиентов или HTTPS callback-домены. Для локальных приложений допускается HTTP
+callback только на numeric loopback (127.0.0.1 / ::1).
+
+Если клиент не поддерживает этот OAuth-поток, создайте собственный bearer-токен
+в [настройках MCP](https://test.abeslab.by/hub/mcp-settings) и задайте его в
+секретном хранилище клиента. Не используйте там ключ Wordstat/Yandex Cloud.
+Поддержка удалённого MCP, OAuth и загрузки skills зависит от клиента; наличие
+его бренда в примерах не означает проверенную end-to-end совместимость.
+Прямой MCP предоставляет инструменты, а не автоматически установленные skills.
 
 ```text
 all-metrics-codex-plugin/

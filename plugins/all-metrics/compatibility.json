@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.3.0",
-  "updated": "2026-09-14",
+  "plugin_version": "3.4.0",
+  "updated": "2026-09-30",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -167,6 +167,14 @@
         "callrail"
       ],
       "degrade": "Без Bitrix24 и CallRail отчёт строится без CPL, CPS, ROAS и ROI, и это указывается явно."
+    },
+    "all-metrics-wordstat": {
+      "min_server_version": "3.3.0",
+      "required_tools": ["get_current_user", "list_sources", "list_connections", "list_resources", "yandex_wordstat"],
+      "optional_tools": [],
+      "required_sources_any_of": ["yandex_wordstat"],
+      "optional_sources": [],
+      "degrade": "Без подключённого Wordstat или сервера 3.3.0 сбор не запускается; пустые ответы и квоты не интерпретируются как отсутствие спроса."
     },
     "all-metrics-keyword-planner": {
       "min_server_version": "3.0.0",

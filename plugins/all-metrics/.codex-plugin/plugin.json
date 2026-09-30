@@ -1,6 +1,6 @@
 {
   "name": "all-metrics",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Read-only аналитика рекламы, веб-аналитики, SEO, CRM и технический аудит сайтов через All Metrics.",
   "author": {
     "name": "Createsens",
@@ -27,7 +27,7 @@
   "interface": {
     "displayName": "AllMetrics 3",
     "shortDescription": "Реклама, аналитика, SEO-аудит и CRM",
-    "longDescription": "AllMetrics 3 подключает Codex, ChatGPT, Claude Desktop и Claude Code к read-only MCP All Metrics. Плагин анализирует Google Ads, Google Business Profile, Яндекс Директ, GA4, Яндекс Метрику, Search Console, Яндекс Вебмастер, Яндекс Вордстат, Bitrix24 и CallRail, работает с Google Keyword Planner и читает сохранённые технические SEO-аудиты Website. Шесть workflow: диагностика подключения, анализ рекламы, аудит PPC-настроек, технический аудит сайта, семантика и прогнозы, сквозной отчёт с CRM-экономикой.",
+    "longDescription": "AllMetrics 3: read-only MCP для совместимых клиентов без ограничения бренда. Аналитика Google/Yandex, CRM и SEO-аудиты. Семь workflow, включая официальный Wordstat: популярные/похожие, динамика, регионы, семантическое ядро с контролем расходов. Codex и Claude используют общие skills; другие MCP-клиенты подключаются по URL с OAuth или своим bearer-токеном.",
     "developerName": "Createsens",
     "category": "Data & Analytics",
     "capabilities": [
@@ -40,7 +40,8 @@
       "Проведи аудит рекламного кабинета и найди потери бюджета.",
       "Покажи последний сохранённый SEO-аудит сайта и главные проблемы.",
       "Собери сквозной отчёт за текущий месяц с CPL, ROAS и ROI.",
-      "Собери ключевые слова и прогноз через Google Keyword Planner."
+      "Собери ключевые слова и прогноз через Google Keyword Planner.",
+      "Собери семантическое ядро через Яндекс Wordstat по моему списку фраз."
     ],
     "brandColor": "#08DDD8",
     "composerIcon": "./assets/all-metrics.png",

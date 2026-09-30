@@ -36,6 +36,6 @@ jobs:
           set -e
           for f in $(git ls-files 'plugins/**/agents/openai.yaml'); do
             grep -q 'display_name' "$f" || { echo "Нет display_name: $f"; exit 1; }
-            grep -q 'type: mcp' "$f" || { echo "Нет зависимости MCP: $f"; exit 1; }
+            grep -Eq 'type:[[:space:]]*"?mcp"?([[:space:]]|$)' "$f" || { echo "Нет зависимости MCP: $f"; exit 1; }
           done
           echo "Все agents/openai.yaml на месте"
