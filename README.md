@@ -7,7 +7,7 @@ MCP-клиенты могут подключаться напрямую к се�
 | Что | Значение |
 | --- | --- |
 | Версия плагина | `3.5.0` |
-| Версия нового серверного workflow | `3.4.0` (production-проверка фиксируется в AllMetrics PROJECT_STATE) |
+| Проверенная версия сервера All Metrics | `3.4.0` (production-проверка фиксируется в AllMetrics PROJECT_STATE) |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
 | Источников | 13 |

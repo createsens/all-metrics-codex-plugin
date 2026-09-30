@@ -11,7 +11,8 @@
     "scope": "mcp:use",
     "min_server_version": "3.0.0",
     "verified_server_versions": [
-      "3.2.0"
+      "3.2.0",
+      "3.4.0"
     ],
     "baseline": {
       "tool_count": 84,
