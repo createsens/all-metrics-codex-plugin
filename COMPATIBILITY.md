@@ -18,6 +18,7 @@
 | `all-metrics-diagnostics` | 3.0.0 | `get_current_user`, `list_sources`, `list_connections`, `list_resources` | — | Работает всегда, в том числе на урезанном сервере |
 | `analyze-all-metrics` | 3.0.0 | те же + `list_fields`, `preview_data`, `start_query`, `get_query_status`, `get_query_results` | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Без CRM не считает CPL, CPS, ROAS, ROI и говорит об этом |
 | `all-metrics-keyword-planner` | 3.0.0 | те же + `keyword_planner` | `google_keyword_planner` | Не подменяет Keyword Planner Wordstat-ом без согласия пользователя |
+| `all-metrics-wordstat` | 3.3.0 | базовые четыре + `yandex_wordstat` | `yandex_wordstat` | Нет доступа — не запускать; расходы и API-ограничения обозначаются явно |
 | `all-metrics-website-audit` | 3.1.0 | те же + `website` | `website` | Без Search Console и Вебмастера раздел индексации помечается неполным |
 | `all-metrics-ppc-audit` | 3.2.0 | те же + `list_setting_capabilities` | `google_ads`, `yandex_direct` | Неподключённая платформа получает статус `not_connected`, а не «проблем нет» |
 | `all-metrics-cross-source-report` | 3.2.0 | те же + весь общий слой запросов | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Каждый недоступный источник попадает в таблицу покрытия со статусом и причиной |
@@ -30,6 +31,7 @@
 | Claude Code | `.claude-plugin/marketplace.json` | да | да, через `.mcp.json` | `NOT VERIFIED` — требуется прогон acceptance |
 | Claude Desktop | Custom connector по URL MCP | нет, skills не применяются | да | `NOT VERIFIED` — требуется OAuth smoke-test |
 | ChatGPT | App через `.app.json` | частично | да | `NOT VERIFIED` |
+| Gemini / Copilot / другие MCP-клиенты | Remote Streamable HTTP + OAuth/личный bearer | зависит от клиента | сервер не ограничивает бренд | `NOT VERIFIED` — отдельные клиентские end-to-end прогоны не выполнены |
 
 Статус `NOT VERIFIED` снимается только фактическим прогоном сценария приёмки, а не чтением кода.
 

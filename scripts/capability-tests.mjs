@@ -19,6 +19,7 @@ const fixture = (name) =>
   JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures', `${name}.json`), 'utf8'));
 
 const full = fixture('full-3.2.0');
+const latest = { ...full, server_version: '3.3.0' };
 const legacy = fixture('legacy-3.0.0');
 const empty = fixture('no-connections');
 const partial = fixture('partial-reauth');
@@ -61,7 +62,7 @@ assertEqual('partial: yandex_direct не подключён', sourceStatus(parti
 
 // --------------------------------------------------------- полный сервер
 
-for (const result of evaluateAll(compat, full)) {
+for (const result of evaluateAll(compat, latest)) {
   assert(`full: ${result.skill} готов`, result.status === 'ready', result.blockers.join('; '));
   assert(
     `full: ${result.skill} не имеет недостающих обязательных инструментов`,
@@ -76,6 +77,9 @@ for (const result of evaluateAll(compat, full)) {
 }
 
 // --------------------------------------------------------- старый сервер
+
+assertEqual('Wordstat: сервер 3.2.0 недостаточен', evaluateSkill(compat, 'all-metrics-wordstat', full).status, 'blocked');
+assertEqual('Wordstat: сервер 3.3.0 готов', evaluateSkill(compat, 'all-metrics-wordstat', latest).status, 'ready');
 
 const legacyWebsite = evaluateSkill(compat, 'all-metrics-website-audit', legacy);
 assertEqual('legacy: website-audit заблокирован', legacyWebsite.status, 'blocked');

@@ -322,7 +322,7 @@ for (const dir of skillDirs) {
   if (fs.existsSync(openai)) {
     const y = fs.readFileSync(openai, 'utf8');
     check(y.includes(compat.mcp.url), `${dir}/agents/openai.yaml: URL MCP расходится с compatibility.json`);
-    check(y.includes(`value: ${compat.mcp.server}`), `${dir}/agents/openai.yaml: имя MCP-сервера расходится`);
+    check(new RegExp(`value:\\s*["']?${compat.mcp.server}["']?(?:\\s|$)`).test(y), `${dir}/agents/openai.yaml: имя MCP-сервера расходится`);
   }
 
   // Ссылки и упомянутые инструменты во всех markdown-файлах skill

@@ -1,6 +1,6 @@
 {
   "name": "all-metrics-agent-plugin",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "private": true,
   "description": "Универсальный плагин All Metrics для Codex и Claude: общий MCP, общие skills, два тонких манифеста.",
   "license": "MIT",

@@ -1,0 +1,13 @@
+interface:
+  display_name: "All Metrics Wordstat"
+  short_description: "Семантика, частотность и сезонность Яндекс Wordstat"
+  default_prompt: "Используй $all-metrics-wordstat, чтобы собрать семантику по моим seed-фразам и выбранному региону."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "all_metrics"
+      description: "All Metrics MCP для официального Яндекс Wordstat"
+      transport: "streamable_http"
+      url: "https://test.abeslab.by/hub/mcp"
+policy:
+  allow_implicit_invocation: true
