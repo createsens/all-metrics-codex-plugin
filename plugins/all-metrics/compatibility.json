@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.5.0",
-  "updated": "2026-09-30",
+  "plugin_version": "3.6.0",
+  "updated": "2026-10-04",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -15,8 +15,8 @@
       "3.4.0"
     ],
     "baseline": {
-      "tool_count": 84,
-      "source_count": 13,
+      "tool_count": 87,
+      "source_count": 14,
       "website_check_count": 131
     }
   },
@@ -34,7 +34,8 @@
       "bitrix24",
       "callrail",
       "website",
-      "google_serp"
+      "google_serp",
+      "localo"
     ],
     "tools": [
       "list_businesses",
@@ -120,7 +121,10 @@
       "yandex_metrica_run_visits_report",
       "yandex_metrica_settings",
       "yandex_webmaster",
-      "yandex_wordstat"
+      "yandex_wordstat",
+      "localo_capabilities",
+      "localo",
+      "localo_write"
     ]
   },
   "detection": {
@@ -142,10 +146,29 @@
   "skills": {
     "all-metrics-business-research": {
       "min_server_version": "3.4.0",
-      "required_tools": ["get_current_user", "list_sources", "list_connections", "list_resources", "list_businesses", "list_business_resources", "get_business_context", "google_serp", "website"],
-      "optional_tools": ["keyword_planner", "yandex_wordstat"],
-      "required_sources_any_of": ["google_serp"],
-      "optional_sources": ["website", "google_keyword_planner", "yandex_wordstat"],
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "list_businesses",
+        "list_business_resources",
+        "get_business_context",
+        "google_serp",
+        "website"
+      ],
+      "optional_tools": [
+        "keyword_planner",
+        "yandex_wordstat"
+      ],
+      "required_sources_any_of": [
+        "google_serp"
+      ],
+      "optional_sources": [
+        "website",
+        "google_keyword_planner",
+        "yandex_wordstat"
+      ],
       "degrade": "Без Serper новые SERP не собирать; читать сохранённый контекст бизнеса. Отсутствие данных не является отсутствием спроса."
     },
     "analyze-all-metrics": {
@@ -184,9 +207,17 @@
     },
     "all-metrics-wordstat": {
       "min_server_version": "3.3.0",
-      "required_tools": ["get_current_user", "list_sources", "list_connections", "list_resources", "yandex_wordstat"],
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "yandex_wordstat"
+      ],
       "optional_tools": [],
-      "required_sources_any_of": ["yandex_wordstat"],
+      "required_sources_any_of": [
+        "yandex_wordstat"
+      ],
       "optional_sources": [],
       "degrade": "Без подключённого Wordstat или сервера 3.3.0 сбор не запускается; пустые ответы и квоты не интерпретируются как отсутствие спроса."
     },
@@ -352,6 +383,30 @@
         "website"
       ],
       "degrade": "Skill работает и на урезанном сервере: он предназначен именно для диагностики расхождений."
+    },
+    "all-metrics-localo": {
+      "min_server_version": "3.5.0",
+      "required_tools": [
+        "localo_capabilities",
+        "localo",
+        "localo_write",
+        "list_sources",
+        "list_connections",
+        "list_resources"
+      ],
+      "optional_tools": [
+        "list_fields",
+        "preview_data",
+        "start_query",
+        "get_query_status",
+        "get_query_results",
+        "get_export_link"
+      ],
+      "required_sources_any_of": [
+        "localo"
+      ],
+      "optional_sources": [],
+      "degrade": "Unreviewed operations are blocked. Writes require owner approval; destructive actions require separate confirmation. Other workflows remain read-only."
     }
   }
 }
