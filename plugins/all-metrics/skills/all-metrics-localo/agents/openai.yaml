@@ -1,0 +1,13 @@
+interface:
+  display_name: "AllMetrics Localo"
+  short_description: "Localo: чтение и изменения с разрешением владельца"
+  default_prompt: "Используй $all-metrics-localo для работы с Localo через AllMetrics и ограниченные сессии записи."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "all_metrics"
+      description: "AllMetrics MCP: Localo proxy"
+      transport: "streamable_http"
+      url: "https://test.abeslab.by/hub/mcp"
+policy:
+  allow_implicit_invocation: true

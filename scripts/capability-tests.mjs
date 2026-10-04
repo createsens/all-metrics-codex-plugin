@@ -20,6 +20,7 @@ const fixture = (name) =>
 
 const full = fixture('full-3.2.0');
 const latest = { ...full, server_version: '3.4.0', tools: [...full.tools, 'list_businesses', 'list_business_resources', 'get_business_context', 'google_serp'], sources: [...full.sources, 'google_serp'], connections: [...full.connections, { source: 'google_serp', status: 'connected' }], resources: [...full.resources, { source: 'google_serp', queryable: true }] };
+const localoLatest = { ...latest, server_version: '3.5.0', tools: [...latest.tools, 'localo_capabilities', 'localo', 'localo_write'], sources: [...latest.sources, 'localo'], connections: [...latest.connections, { source: 'localo', status: 'connected' }], resources: [...latest.resources, { source: 'localo', queryable: true }] };
 const legacy = fixture('legacy-3.0.0');
 const empty = fixture('no-connections');
 const partial = fixture('partial-reauth');
@@ -62,7 +63,7 @@ assertEqual('partial: yandex_direct не подключён', sourceStatus(parti
 
 // --------------------------------------------------------- полный сервер
 
-for (const result of evaluateAll(compat, latest)) {
+for (const result of evaluateAll(compat, localoLatest)) {
   assert(`full: ${result.skill} готов`, result.status === 'ready', result.blockers.join('; '));
   assert(
     `full: ${result.skill} не имеет недостающих обязательных инструментов`,
@@ -82,6 +83,8 @@ assertEqual('Wordstat: сервер 3.2.0 недостаточен', evaluateSki
 assertEqual('Wordstat: сервер 3.3.0 готов', evaluateSkill(compat, 'all-metrics-wordstat', latest).status, 'ready');
 
 const legacyWebsite = evaluateSkill(compat, 'all-metrics-website-audit', legacy);
+assertEqual('Localo: old server remains blocked', evaluateSkill(compat, 'all-metrics-localo', latest).status, 'blocked');
+assertEqual('Localo: proxy server ready', evaluateSkill(compat, 'all-metrics-localo', localoLatest).status, 'ready');
 assertEqual('legacy: website-audit заблокирован', legacyWebsite.status, 'blocked');
 assert(
   'legacy: website-audit называет недостающий инструмент website',
@@ -118,7 +121,7 @@ assertEqual('legacy: keyword-planner работает на 3.0.0', legacyKp.stat
 
 // --------------------------------------------------------- нет подключений
 
-const emptyResults = evaluateAll(compat, { ...latest, connections: [], resources: [] });
+const emptyResults = evaluateAll(compat, { ...localoLatest, connections: [], resources: [] });
 for (const result of emptyResults) {
   if (result.skill === 'all-metrics-diagnostics') {
     assertEqual('empty: diagnostics остаётся доступным', result.status, 'ready');
