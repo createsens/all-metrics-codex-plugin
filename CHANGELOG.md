@@ -2,6 +2,11 @@
 
 Формат: версия плагина, дата, изменения. Версия плагина не совпадает с версией сервера All Metrics и меняется независимо.
 
+## 3.7.1 — 2026-10-08
+
+- Website inspect/start_crawl accept explicit URLs on server 3.6.1+ when a client caches older operation names.
+- Localo generic fallback and independent partial audits preserve available evidence and historical score semantics.
+
 ## 3.7.0 — 2026-10-08
 
 - Website audits accept an explicit public URL immediately using external MCP operations, without adding a source.
