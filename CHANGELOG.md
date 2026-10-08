@@ -2,6 +2,12 @@
 
 Формат: версия плагина, дата, изменения. Версия плагина не совпадает с версией сервера All Metrics и меняется независимо.
 
+## 3.7.0 — 2026-10-08
+
+- Website audits accept an explicit public URL immediately using external MCP operations, without adding a source.
+- Browser capabilities, cloud/local pending status, verified content and partial coverage are required in reports.
+- Challenge HTML, missing browser evidence and unavailable PSI/CrUX are reported as inconclusive.
+
 ## 3.4.0 — 2026-09-30
 
 - Добавлен отдельный `all-metrics-wordstat` skill: официальный API, полные
