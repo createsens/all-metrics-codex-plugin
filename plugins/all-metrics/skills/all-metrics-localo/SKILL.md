@@ -22,3 +22,18 @@ Use the existing AllMetrics connection. Never ask for Localo credentials in chat
 - Read back after a successful change when supported. Report the actual result and any verification warning. Do not promise universal undo.
 - Expiry, revocation, connection replacement, wrong client or out-of-scope profiles deny subsequent writes. Request a new permission only for a new user-authorized change.
 - Other AllMetrics analytical sources remain read-only. Never forward a mutation through an analytical tool.
+
+
+## Cached client and partial audits (server 3.6.1+)
+
+When dedicated Localo tools are absent from the connected client, use list_fields
+and the generic preview_data/start_query surface with source=localo, connection_id
+and exactly one selected resource_ids entry. operation=capabilities discovers the
+reviewed catalog; normalized operation=audit returns independent profile,
+score_history and keyword_audits sections. For full reads use operation=call_tool,
+selection={tool:"query",arguments:{query:"query ...",variables:{...}}}.
+Preserve partial_data, provider_errors/path/extensions and section statuses.
+A section failure does not invalidate available sibling evidence. Stored scores
+are historical/latest-known, not current. Do not retry a mutation as a read.
+Schema changes requiring review are a precise capability limitation, not proof
+that OAuth failed or the profile is absent.
