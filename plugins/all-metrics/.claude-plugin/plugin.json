@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin.json",
   "name": "all-metrics",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "AllMetrics 3 — аналитический MCP с отдельной защищённой записью Localo-доступ к Google Ads, Keyword Planner, GA4, Search Console, Google Business Profile, Яндекс Директу, Метрике, Вебмастеру, Вордстату, Bitrix24, CallRail и сохранённым техническим SEO-аудитам сайтов. Даёт готовые workflow для PPC-аудита, SEO-аудита сайта, семантики и сквозного отчёта с CRM-атрибуцией.",
   "author": {
     "name": "Createsens",
