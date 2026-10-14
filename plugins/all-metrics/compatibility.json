@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.7.1",
-  "updated": "2026-10-04",
+  "plugin_version": "3.8.0",
+  "updated": "2026-10-14",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -15,8 +15,8 @@
       "3.4.0"
     ],
     "baseline": {
-      "tool_count": 87,
-      "source_count": 14,
+      "tool_count": 93,
+      "source_count": 16,
       "website_check_count": 131
     }
   },
@@ -35,7 +35,9 @@
       "callrail",
       "website",
       "google_serp",
-      "localo"
+      "localo",
+      "google_tag_manager",
+      "google_tag"
     ],
     "tools": [
       "list_businesses",
@@ -124,7 +126,13 @@
       "yandex_wordstat",
       "localo_capabilities",
       "localo",
-      "localo_write"
+      "localo_write",
+      "google_tag_manager",
+      "google_tag",
+      "google_tag_manager_write",
+      "google_tag_write",
+      "tag_runtime_inspect",
+      "tag_scenario_test"
     ]
   },
   "detection": {
@@ -407,6 +415,31 @@
       ],
       "optional_sources": [],
       "degrade": "Unreviewed operations are blocked. Writes require owner approval; destructive actions require separate confirmation. Other workflows remain read-only."
+    },
+    "all-metrics-tag-platform": {
+      "min_server_version": "3.7.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "google_tag_manager",
+        "google_tag",
+        "google_tag_manager_write",
+        "google_tag_write",
+        "tag_runtime_inspect",
+        "tag_scenario_test"
+      ],
+      "optional_tools": [
+        "get_query_status",
+        "get_query_results",
+        "get_resource_health"
+      ],
+      "required_sources_any_of": [
+        "google_tag_manager",
+        "google_tag"
+      ],
+      "degrade": "Stop mutation if required tools, scope or selected resource are missing; report BLOCKED and keep independent analytical reads available."
     }
   }
 }

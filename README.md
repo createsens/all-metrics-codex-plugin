@@ -6,15 +6,15 @@ MCP-клиенты могут подключаться напрямую к се�
 
 | Что | Значение |
 | --- | --- |
-| Версия плагина | `3.7.1` |
+| Версия плагина | `3.8.0` |
 | Проверенная версия сервера All Metrics | `3.4.0` (production-проверка фиксируется в AllMetrics PROJECT_STATE) |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
-| Источников | 14 |
-| MCP-инструментов | 87 |
-| Skills | 8 |
+| Источников | 16 |
+| MCP-инструментов | 93 |
+| Skills | 10 |
 
-Плагин работает только на чтение. Он не изменяет рекламные кампании, ставки, ключевые слова, подключения, CRM и Keyword Plans.
+Аналитические инструменты работают только на чтение; Localo и Google Tag Platform имеют отдельные инструменты записи с серверными разрешениями. Он не изменяет рекламные кампании, ставки, ключевые слова, подключения, CRM и Keyword Plans.
 
 ## Что внутри
 
@@ -149,3 +149,8 @@ CI выполняет обе проверки на каждый push и pull req
 MIT. См. [LICENSE](LICENSE).
 
 Localo: [workflow](plugins/all-metrics/skills/all-metrics-localo/SKILL.md). Требует AllMetrics 3.5.0; наличие новых инструментов на живом сервере проверяется при запуске.
+
+
+## Google Tag Platform
+
+Skill `all-metrics-tag-platform` requires server 3.7.0 and six tagging tools. Native client/API acceptance remains NOT VERIFIED until connected runs; source changes do not refresh installed tool catalogs automatically.
