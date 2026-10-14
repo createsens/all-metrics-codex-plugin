@@ -1,3 +1,7 @@
+# 3.8.0 — 2026-10-14
+
+Google Tag Platform workflow and capability contract for server 3.7.0: separate read/write/runtime tools, persistent grants, separate publication and unknown-outcome handling. Installed-client acceptance NOT VERIFIED.
+
 # Журнал изменений
 
 Формат: версия плагина, дата, изменения. Версия плагина не совпадает с версией сервера All Metrics и меняется независимо.

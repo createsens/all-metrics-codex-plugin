@@ -1,0 +1,13 @@
+interface:
+  display_name: "Google Tag Manager и Google tag"
+  short_description: "Анализ и управление тегами"
+  default_prompt: "Проверь Google Tag Manager и Google tag через AllMetrics, проанализируй настройки и подготовь необходимые изменения без автоматической публикации."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "all_metrics"
+      description: "AllMetrics MCP: Google Tag Platform"
+      transport: "streamable_http"
+      url: "https://test.abeslab.by/hub/mcp"
+policy:
+  allow_implicit_invocation: true
