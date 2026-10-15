@@ -4,8 +4,8 @@
 
 | Что | Версия | Где зафиксирована |
 | --- | --- | --- |
-| Плагин All Metrics (этот репозиторий) | 3.3.0 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
-| Сервер All Metrics (MCP) | 3.2.0 в production | ответ MCP-сервера, `compatibility.json` → `mcp.verified_server_versions` |
+| Плагин All Metrics (этот репозиторий) | 3.8.1 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
+| Сервер All Metrics (MCP) | Определять через get_current_user | ответ MCP-сервера, `compatibility.json` → `mcp.verified_server_versions` |
 
 Версия плагина и версия сервера меняются независимо. Плагин — это версионированный интерфейс к возможностям сервера, а не его копия. Машиночитаемый контракт целиком лежит в [`plugins/all-metrics/compatibility.json`](plugins/all-metrics/compatibility.json), он же используется тестами и CI.
 
@@ -18,7 +18,7 @@
 | `all-metrics-diagnostics` | 3.0.0 | `get_current_user`, `list_sources`, `list_connections`, `list_resources` | — | Работает всегда, в том числе на урезанном сервере |
 | `analyze-all-metrics` | 3.0.0 | те же + `list_fields`, `preview_data`, `start_query`, `get_query_status`, `get_query_results` | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Без CRM не считает CPL, CPS, ROAS, ROI и говорит об этом |
 | `all-metrics-keyword-planner` | 3.0.0 | те же + `keyword_planner` | `google_keyword_planner` | Не подменяет Keyword Planner Wordstat-ом без согласия пользователя |
-| `all-metrics-wordstat` | 3.3.0 | базовые четыре + `yandex_wordstat` | `yandex_wordstat` | Нет доступа — не запускать; расходы и API-ограничения обозначаются явно |
+| `all-metrics-wordstat` | 3.8.1 | базовые четыре + `yandex_wordstat` | `yandex_wordstat` | Нет доступа — не запускать; расходы и API-ограничения обозначаются явно |
 | `all-metrics-website-audit` | 3.1.0 | те же + `website` | `website` | Без Search Console и Вебмастера раздел индексации помечается неполным |
 | `all-metrics-ppc-audit` | 3.2.0 | те же + `list_setting_capabilities` | `google_ads`, `yandex_direct` | Неподключённая платформа получает статус `not_connected`, а не «проблем нет» |
 | `all-metrics-cross-source-report` | 3.2.0 | те же + весь общий слой запросов | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Каждый недоступный источник попадает в таблицу покрытия со статусом и причиной |
@@ -85,3 +85,18 @@ Skill обязан определять возможности по фактич
 4. Обновить фикстуры в `tests/fixtures` и, при необходимости, ожидания в `scripts/capability-tests.mjs`.
 5. Прогнать `npm run check`.
 6. Поднять версию плагина и записать изменение в [`CHANGELOG.md`](CHANGELOG.md).
+
+
+OAuth interoperability server 3.7.1: RFC 8414/9728 discovery, DCR, HTTPS and
+HTTP localhost/numeric loopback callbacks, explicit consent and PKCE S256.
+Gemini CLI uses httpUrl; Gemini web availability is controlled by Google.
+Client E2E remains NOT VERIFIED until sign-in and an actual tool call complete.
+
+Server 3.7.1 acceptance on 2026-10-15: standard discovery 200 JSON, complete
+HTTP DCR/login/consent/S256/token/refresh/revoke cycle on an isolated temporary
+account, all 93 tools via the official MCP SDK bundled with Gemini CLI 0.34.0,
+Gemini CLI mcp list Connected with the temporary OAuth token, and native OpenAI
+get_current_user/list_sources. Native Claude sign-in and Gemini web/mobile remain
+NOT VERIFIED. Gemini CLI's interactive OAuth browser login is not covered by
+its successful connection with a preobtained OAuth token. Local automated suites
+were not run at owner request; normal CI remains enabled.

@@ -6,7 +6,7 @@ MCP-клиенты могут подключаться напрямую к се�
 
 | Что | Значение |
 | --- | --- |
-| Версия плагина | `3.8.0` |
+| Версия плагина | `3.8.1` |
 | Проверенная версия сервера All Metrics | `3.4.0` (production-проверка фиксируется в AllMetrics PROJECT_STATE) |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
@@ -75,7 +75,7 @@ https://test.abeslab.by/hub/mcp
 `https://test.abeslab.by/hub/mcp`. Используйте OAuth discovery + PKCE S256 и
 подтвердите доступ на экране All Metrics. Сервер 3.3.0+ не ограничивает названия
 клиентов или HTTPS callback-домены. Для локальных приложений допускается HTTP
-callback только на numeric loopback (127.0.0.1 / ::1).
+callback на 127.0.0.1, ::1 или буквальный localhost (сервер 3.7.1+).
 
 Если клиент не поддерживает этот OAuth-поток, создайте собственный bearer-токен
 в [настройках MCP](https://test.abeslab.by/hub/mcp-settings) и задайте его в
@@ -154,3 +154,40 @@ Localo: [workflow](plugins/all-metrics/skills/all-metrics-localo/SKILL.md). Тр
 ## Google Tag Platform
 
 Skill `all-metrics-tag-platform` requires server 3.7.0 and six tagging tools. Native client/API acceptance remains NOT VERIFIED until connected runs; source changes do not refresh installed tool catalogs automatically.
+
+
+## OAuth discovery и Gemini (сервер 3.7.1+)
+
+Единый URL: https://test.abeslab.by/hub/mcp. Для Claude web/Desktop используйте
+remote custom connector и Reconnect. Для Claude Code — установленный плагин
+либо `claude mcp add --transport http all-metrics https://test.abeslab.by/hub/mcp`.
+Затем выполните `/mcp` и вход через браузер; сервер покажет consent.
+
+Для Gemini CLI добавьте в settings.json (или импортируйте examples/gemini-settings.json):
+
+```json
+{
+  "mcpServers": {
+    "all-metrics": {
+      "httpUrl": "https://test.abeslab.by/hub/mcp",
+      "oauth": {"enabled": true, "scopes": ["mcp:use"]}
+    }
+  }
+}
+```
+
+Выполните `/mcp auth all-metrics`. Не включайте trust/автоподтверждение записей.
+Для Gemini web откройте Connected Apps → Custom apps и укажите тот же URL.
+Доступность определяется Google: личный аккаунт, 18+, США, английский интерфейс
+по документации на 2026-10-15: https://support.google.com/gemini/answer/17209137?hl=en-yt.
+После подключения в вебе приложение доступно и на мобильном устройстве.
+
+Сервер использует DCR, mcp:use, PKCE S256 и отдельное пользовательское согласие.
+Он не ограничивает бренды клиентов. Прямой MCP предоставляет tools; skills
+загружаются только поддерживающими их клиентами. Запись Localo/GTM по-прежнему
+требует существующих серверных разрешений.
+
+Если возникает JSON Parse error, проверьте, какой URL и HTTP-ответ не разобран.
+HTML 404 discovery, OAuth-ошибка и повреждённый локальный JSON — разные причины.
+Не меняйте транспорт Streamable HTTP на stdio/SSE только по тексту этой ошибки.
+Наличие инструкции подключения не означает выполненную приёмку клиента.

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.8.0",
-  "updated": "2026-10-14",
+  "plugin_version": "3.8.1",
+  "updated": "2026-10-15",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -12,7 +12,8 @@
     "min_server_version": "3.0.0",
     "verified_server_versions": [
       "3.2.0",
-      "3.4.0"
+      "3.4.0",
+      "3.7.1"
     ],
     "baseline": {
       "tool_count": 93,

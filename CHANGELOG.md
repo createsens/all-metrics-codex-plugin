@@ -1,3 +1,10 @@
+# 3.8.1 — 2026-10-15
+
+- Document standard OAuth discovery and localhost callbacks in server 3.7.1.
+- Add Gemini CLI settings example and Gemini web/mobile connection guidance.
+- Preserve plugin/App IDs, shared Streamable HTTP URL, tools and skills.
+- Independent client acceptance is reported separately from server checks.
+
 # 3.8.0 — 2026-10-14
 
 Google Tag Platform workflow and capability contract for server 3.7.0: separate read/write/runtime tools, persistent grants, separate publication and unknown-outcome handling. Installed-client acceptance NOT VERIFIED.
