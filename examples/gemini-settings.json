@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "all-metrics": {
+      "httpUrl": "https://test.abeslab.by/hub/mcp",
+      "oauth": {
+        "enabled": true,
+        "scopes": [
+          "mcp:use"
+        ]
+      }
+    }
+  }
+}
