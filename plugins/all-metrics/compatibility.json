@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.8.1",
-  "updated": "2026-10-15",
+  "plugin_version": "3.9.0",
+  "updated": "2026-10-18",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -13,10 +13,11 @@
     "verified_server_versions": [
       "3.2.0",
       "3.4.0",
-      "3.7.1"
+      "3.7.1",
+      "3.9.0"
     ],
     "baseline": {
-      "tool_count": 93,
+      "tool_count": 96,
       "source_count": 16,
       "website_check_count": 131
     }
@@ -62,6 +63,9 @@
       "google_ads_list_campaigns",
       "google_ads_list_customer_hierarchy",
       "google_ads_run_gaql",
+      "google_ads_api_schema",
+      "google_ads_api_read",
+      "google_ads_write",
       "google_ads_settings",
       "google_ads_validate_gaql",
       "google_analytics_settings",
@@ -441,6 +445,33 @@
         "google_tag"
       ],
       "degrade": "Stop mutation if required tools, scope or selected resource are missing; report BLOCKED and keep independent analytical reads available."
+    },
+    "all-metrics-google-ads-management": {
+      "min_server_version": "3.9.0",
+      "required_tools": [
+        "get_current_user",
+        "list_sources",
+        "list_connections",
+        "list_resources",
+        "google_ads_api_schema",
+        "google_ads_api_read",
+        "google_ads_write",
+        "google_ads_run_gaql"
+      ],
+      "optional_tools": [
+        "google_ads_validate_gaql",
+        "google_ads_list_campaigns",
+        "google_ads_get_campaign_by_id",
+        "google_ads_settings",
+        "google_ads_change_history"
+      ],
+      "required_sources_any_of": [
+        "google_ads"
+      ],
+      "optional_sources": [
+        "google_analytics"
+      ],
+      "degrade": "Без сервера 3.9.0, всех трёх новых Google Ads API-инструментов, выбранного direct-customer ресурса или действующих прав провайдера не выполнять запись; предложить только анализ. При outcome_unknown проверить состояние, не повторять мутацию."
     }
   }
 }

@@ -1,0 +1,13 @@
+interface:
+  display_name: "AllMetrics Google Ads Management"
+  short_description: "Чтение схем и прямые изменения Google Ads"
+  default_prompt: "Проверь реальные кампании и их настройки через AllMetrics 3.9.0, подготовь изменение Google Ads и выполни только явно запрошенную операцию с последующей проверкой состояния."
+dependencies:
+  tools:
+    - type: mcp
+      value: all_metrics
+      description: "AllMetrics 3.9.0 Google Ads API schema/read/write"
+      transport: streamable_http
+      url: https://test.abeslab.by/hub/mcp
+policy:
+  allow_implicit_invocation: true

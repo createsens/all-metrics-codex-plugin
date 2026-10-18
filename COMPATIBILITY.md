@@ -4,7 +4,7 @@
 
 | Что | Версия | Где зафиксирована |
 | --- | --- | --- |
-| Плагин All Metrics (этот репозиторий) | 3.8.1 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
+| Плагин All Metrics (этот репозиторий) | 3.9.0 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
 | Сервер All Metrics (MCP) | Определять через get_current_user | ответ MCP-сервера, `compatibility.json` → `mcp.verified_server_versions` |
 
 Версия плагина и версия сервера меняются независимо. Плагин — это версионированный интерфейс к возможностям сервера, а не его копия. Машиночитаемый контракт целиком лежит в [`plugins/all-metrics/compatibility.json`](plugins/all-metrics/compatibility.json), он же используется тестами и CI.
@@ -18,8 +18,9 @@
 | `all-metrics-diagnostics` | 3.0.0 | `get_current_user`, `list_sources`, `list_connections`, `list_resources` | — | Работает всегда, в том числе на урезанном сервере |
 | `analyze-all-metrics` | 3.0.0 | те же + `list_fields`, `preview_data`, `start_query`, `get_query_status`, `get_query_results` | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Без CRM не считает CPL, CPS, ROAS, ROI и говорит об этом |
 | `all-metrics-keyword-planner` | 3.0.0 | те же + `keyword_planner` | `google_keyword_planner` | Не подменяет Keyword Planner Wordstat-ом без согласия пользователя |
-| `all-metrics-wordstat` | 3.8.1 | базовые четыре + `yandex_wordstat` | `yandex_wordstat` | Нет доступа — не запускать; расходы и API-ограничения обозначаются явно |
+| `all-metrics-wordstat` | 3.3.0 | базовые четыре + `yandex_wordstat` | `yandex_wordstat` | Нет доступа — не запускать; расходы и API-ограничения обозначаются явно |
 | `all-metrics-website-audit` | 3.1.0 | те же + `website` | `website` | Без Search Console и Вебмастера раздел индексации помечается неполным |
+| `all-metrics-google-ads-management` | 3.9.0 | базовый discovery + `google_ads_api_schema`, `google_ads_api_read`, `google_ads_write`, `google_ads_run_gaql` | `google_ads` | Если нет всех инструментов, пригодного ресурса или прав Google Ads, только анализ без изменений |
 | `all-metrics-ppc-audit` | 3.2.0 | те же + `list_setting_capabilities` | `google_ads`, `yandex_direct` | Неподключённая платформа получает статус `not_connected`, а не «проблем нет» |
 | `all-metrics-cross-source-report` | 3.2.0 | те же + весь общий слой запросов | `google_ads`, `yandex_direct`, `google_analytics`, `yandex_metrica` | Каждый недоступный источник попадает в таблицу покрытия со статусом и причиной |
 
@@ -30,10 +31,14 @@
 | Codex (CLI и приложение) | `.agents/plugins/marketplace.json` | да | да, через `.mcp.json` | `NOT VERIFIED` — требуется прогон acceptance |
 | Claude Code | `.claude-plugin/marketplace.json` | да | да, через `.mcp.json` | `NOT VERIFIED` — требуется прогон acceptance |
 | Claude Desktop | Custom connector по URL MCP | нет, skills не применяются | да | `NOT VERIFIED` — требуется OAuth smoke-test |
-| ChatGPT | App через `.app.json` | частично | да | `NOT VERIFIED` |
+| ChatGPT | App через `.app.json` | частично | да | `PARTIAL`: 18.10.2026 реальный `get_current_user` на 3.9.0 и `google_ads_api_schema` v25 прошли; Google Ads write/read-back ещё `NOT VERIFIED` |
 | Gemini / Copilot / другие MCP-клиенты | Remote Streamable HTTP + OAuth/личный bearer | зависит от клиента | сервер не ограничивает бренд | `NOT VERIFIED` — отдельные клиентские end-to-end прогоны не выполнены |
 
 Статус `NOT VERIFIED` снимается только фактическим прогоном сценария приёмки, а не чтением кода.
+
+## Расширение 3.9.0
+
+В MCP 3.9.0 зарегистрировано 96 инструментов (на три больше, чем в плагине 3.8.1). Добавлены `google_ads_api_schema`, `google_ads_api_read`, `google_ads_write`; все три проверяются через фактический `tools/list`. Для Google Ads write не нужен внутренний AllMetrics grant, но нужны права провайдера и явный пользовательский запрос. `validateOnly` не заменяет реальную проверку результата. `outcome_unknown` нельзя автоматически повторять. Запись GTM и Localo следует отдельным механизмам разрешений. Версия плагина независима от версии MCP.
 
 ## Определение возможностей во время работы
 
