@@ -6,15 +6,15 @@
     "url": "https://github.com/createsens"
   },
   "metadata": {
-    "description": "Плагины Createsens для read-only аналитики рекламы, веб-аналитики, SEO и CRM через All Metrics.",
-    "version": "3.8.1"
+    "description": "Универсальный AllMetrics MCP: аналитика, SEO, CRM, Google Tag Platform и прямое управление Google Ads на сервере 3.9.0.",
+    "version": "3.9.0"
   },
   "plugins": [
     {
       "name": "all-metrics",
       "source": "./plugins/all-metrics",
-      "description": "Read-only аналитика Google Ads, GA4, Search Console, Google Business Profile, Яндекс Директа, Метрики, Вебмастера, Вордстата, Bitrix24, CallRail и технический SEO-аудит сайтов через MCP All Metrics.",
-      "version": "3.8.1",
+      "description": "Аналитика и аудит Google/Yandex, SEO, CRM, Localo, Google Tag Platform и прямое управление Google Ads через общий MCP AllMetrics.",
+      "version": "3.9.0",
       "author": {
         "name": "Createsens",
         "url": "https://github.com/createsens"

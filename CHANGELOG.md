@@ -1,3 +1,10 @@
+# 3.9.0 — 2026-10-18
+
+- Sync the public compatibility catalog with server 3.9.0: 96 tools, 16 sources and official Google Ads API v25/v26 schema/read/write capabilities.
+- Add `all-metrics-google-ads-management` skill and Codex agent manifest, distinguishing explicit direct Google Ads changes from read-only audits and separately granted Localo/GTM writes.
+- Add capability tests for old, partially updated, disconnected and complete 3.9.0 MCP sessions; update Codex and Claude manifests and guidance.
+- Native ChatGPT 3.9.0 `get_current_user` and `google_ads_api_schema` verified on 2026-10-18; real Google Ads mutation/read-back acceptance still NOT VERIFIED.
+
 # 3.8.1 — 2026-10-15
 
 - Document standard OAuth discovery and localhost callbacks in server 3.7.1.
