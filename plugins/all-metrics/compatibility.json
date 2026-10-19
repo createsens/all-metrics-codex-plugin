@@ -419,7 +419,7 @@
         "localo"
       ],
       "optional_sources": [],
-      "degrade": "Unreviewed operations are blocked. Writes require owner approval; destructive actions require separate confirmation. Other workflows remain read-only."
+      "degrade": "Reviewed Localo read-only operations and history continue through global GraphQL schema drift; unsupported individual queries report provider errors. Unreviewed operations are blocked. Writes require owner approval; destructive actions require separate confirmation. Other workflows remain read-only."
     },
     "all-metrics-tag-platform": {
       "min_server_version": "3.7.0",
