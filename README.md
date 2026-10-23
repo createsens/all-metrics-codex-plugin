@@ -6,7 +6,7 @@ MCP-клиенты могут подключаться напрямую к се�
 
 | Что | Значение |
 | --- | --- |
-| Версия плагина | `3.9.0` |
+| Версия плагина | `3.10.0` |
 | Проверенная версия сервера All Metrics | `3.9.0` (get_current_user и google_ads_api_schema проверены в ChatGPT 18.10.2026) |
 | Минимальная версия сервера | `3.0.0` |
 | MCP | `https://test.abeslab.by/hub/mcp`, streamable HTTP, OAuth 2.1 + PKCE, scope `mcp:use` |
@@ -14,7 +14,7 @@ MCP-клиенты могут подключаться напрямую к се�
 | MCP-инструментов | 96 |
 | Skills | 11 |
 
-Аналитические и audit-инструменты работают только на чтение. Начиная с сервера 3.9.0, `google_ads_write` выполняет прямые изменения Google Ads по явному запросу пользователя через существующее подключение; отдельный AllMetrics grant не нужен. Localo и Google Tag Platform сохраняют собственные разрешения записи. Отсутствие прямых Google Ads API tools означает недоступность записи, а не отсутствие рекламного аккаунта.
+Аналитические и audit-инструменты работают только на чтение. Начиная с сервера 3.9.0, `google_ads_write` выполняет прямые изменения Google Ads по явному запросу пользователя через существующее подключение; отдельный AllMetrics grant не нужен. Google Tag Platform с сервера 3.10.1 также работает через Google OAuth без отдельных grants. Разрешения Localo сохраняются. Отсутствие прямых Google Ads API tools означает недоступность записи, а не отсутствие рекламного аккаунта.
 
 ## Что внутри
 
@@ -160,7 +160,7 @@ Localo: [workflow](plugins/all-metrics/skills/all-metrics-localo/SKILL.md). Тр
 
 ## Google Tag Platform
 
-Skill `all-metrics-tag-platform` requires server 3.7.0 and six tagging tools. Native client/API acceptance remains NOT VERIFIED until connected runs; source changes do not refresh installed tool catalogs automatically.
+Skill `all-metrics-tag-platform` requires server 3.10.1 and six tagging tools. Native client/API acceptance remains NOT VERIFIED until connected runs; source changes do not refresh installed tool catalogs automatically.
 
 
 ## OAuth discovery и Gemini (сервер 3.7.1+)

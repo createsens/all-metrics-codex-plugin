@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plugin": "all-metrics",
-  "plugin_version": "3.9.0",
-  "updated": "2026-10-18",
+  "plugin_version": "3.10.0",
+  "updated": "2026-10-23",
   "mcp": {
     "server": "all_metrics",
     "url": "https://test.abeslab.by/hub/mcp",
@@ -422,7 +422,7 @@
       "degrade": "Reviewed Localo read-only operations and history continue through global GraphQL schema drift; unsupported individual queries report provider errors. Unreviewed operations are blocked. Writes require owner approval; destructive actions require separate confirmation. Other workflows remain read-only."
     },
     "all-metrics-tag-platform": {
-      "min_server_version": "3.7.0",
+      "min_server_version": "3.10.1",
       "required_tools": [
         "get_current_user",
         "list_sources",
@@ -444,7 +444,7 @@
         "google_tag_manager",
         "google_tag"
       ],
-      "degrade": "Stop mutation if required tools, scope or selected resource are missing; report BLOCKED and keep independent analytical reads available."
+      "degrade": "Require server 3.10.1 for connection-authorized writes; never request AllMetrics grants. Report missing Google scopes or provider denial precisely."
     },
     "all-metrics-google-ads-management": {
       "min_server_version": "3.9.0",

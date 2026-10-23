@@ -27,6 +27,7 @@ const googleAds390 = {
   server_version: '3.9.0',
   tools: [...tagLatest.tools, 'google_ads_api_schema', 'google_ads_api_read', 'google_ads_write'],
 };
+const tagDirectLatest = { ...googleAds390, server_version: '3.10.1' };
 const legacy = fixture('legacy-3.0.0');
 const empty = fixture('no-connections');
 const partial = fixture('partial-reauth');
@@ -69,7 +70,7 @@ assertEqual('partial: yandex_direct не подключён', sourceStatus(parti
 
 // --------------------------------------------------------- полный сервер
 
-for (const result of evaluateAll(compat, googleAds390)) {
+for (const result of evaluateAll(compat, tagDirectLatest)) {
   assert(`full: ${result.skill} готов`, result.status === 'ready', result.blockers.join('; '));
   assert(
     `full: ${result.skill} не имеет недостающих обязательных инструментов`,
@@ -127,7 +128,7 @@ assertEqual('legacy: keyword-planner работает на 3.0.0', legacyKp.stat
 
 // --------------------------------------------------------- нет подключений
 
-const emptyResults = evaluateAll(compat, { ...googleAds390, connections: [], resources: [] });
+const emptyResults = evaluateAll(compat, { ...tagDirectLatest, connections: [], resources: [] });
 for (const result of emptyResults) {
   if (result.skill === 'all-metrics-diagnostics') {
     assertEqual('empty: diagnostics остаётся доступным', result.status, 'ready');
@@ -187,7 +188,8 @@ assert(
 );
 
 assertEqual('Tags: old server blocked', evaluateSkill(compat, 'all-metrics-tag-platform', localoLatest).status, 'blocked');
-assertEqual('Tags: new server ready', evaluateSkill(compat, 'all-metrics-tag-platform', tagLatest).status, 'ready');
+assertEqual('Tags: former grant-based server blocked', evaluateSkill(compat, 'all-metrics-tag-platform', tagLatest).status, 'blocked');
+assertEqual('Tags: new server ready', evaluateSkill(compat, 'all-metrics-tag-platform', tagDirectLatest).status, 'ready');
 
 // --------------------------------------------------------- Google Ads management 3.9.0
 
@@ -217,7 +219,7 @@ assertEqual('Ads 3.9.0: partial tool registry blocked', missingRead.status, 'blo
 assert('Ads 3.9.0: read missing named', missingRead.missing_required_tools.includes('google_ads_api_read'));
 assertEqual(
   'Ads 3.9.0: disconnected blocked',
-  evaluateSkill(compat, adsSkill, { ...googleAds390, connections: [], resources: [] }).status,
+  evaluateSkill(compat, adsSkill, { ...tagDirectLatest, connections: [], resources: [] }).status,
   'blocked',
 );
 
