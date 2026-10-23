@@ -1,3 +1,7 @@
+# 3.10.0 — 2026-10-23
+
+GTM/Google tag use connection-authorized writes on server 3.10.1 without per-client grants or repeated confirmations. Direct call, requested publication, legacy compatibility and correct version read-back are documented. Localo is unchanged.
+
 # 3.9.0 — 2026-10-18
 
 - Sync the public compatibility catalog with server 3.9.0: 96 tools, 16 sources and official Google Ads API v25/v26 schema/read/write capabilities.

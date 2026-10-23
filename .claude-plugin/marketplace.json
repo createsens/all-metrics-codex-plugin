@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "Универсальный AllMetrics MCP: аналитика, SEO, CRM, Google Tag Platform и прямое управление Google Ads на сервере 3.9.0.",
-    "version": "3.9.0"
+    "version": "3.10.0"
   },
   "plugins": [
     {
       "name": "all-metrics",
       "source": "./plugins/all-metrics",
       "description": "Аналитика и аудит Google/Yandex, SEO, CRM, Localo, Google Tag Platform и прямое управление Google Ads через общий MCP AllMetrics.",
-      "version": "3.9.0",
+      "version": "3.10.0",
       "author": {
         "name": "Createsens",
         "url": "https://github.com/createsens"

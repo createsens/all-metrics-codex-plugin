@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin.json",
   "name": "all-metrics",
-  "version": "3.9.0",
-  "description": "AllMetrics 3: аналитика и аудит Google Ads/Яндекс/SEO/CRM, Google Tag Platform и прямые операции Google Ads API на сервере 3.9.0. Отдельные политики записи Localo/GTM сохранены.",
+  "version": "3.10.0",
+  "description": "AllMetrics 3: аналитика и аудит Google Ads/Яндекс/SEO/CRM, Google Tag Platform и прямые операции Google Ads API на сервере 3.9.0. GTM/Google tag с сервера 3.10.1 доступны без grants; Localo сохраняет отдельную политику.",
   "author": {
     "name": "Createsens",
     "url": "https://github.com/createsens"

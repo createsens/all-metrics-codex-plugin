@@ -4,7 +4,7 @@
 
 | Что | Версия | Где зафиксирована |
 | --- | --- | --- |
-| Плагин All Metrics (этот репозиторий) | 3.9.0 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
+| Плагин All Metrics (этот репозиторий) | 3.10.0 | `plugins/all-metrics/.codex-plugin/plugin.json`, `plugins/all-metrics/.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `plugins/all-metrics/compatibility.json` |
 | Сервер All Metrics (MCP) | Определять через get_current_user | ответ MCP-сервера, `compatibility.json` → `mcp.verified_server_versions` |
 
 Версия плагина и версия сервера меняются независимо. Плагин — это версионированный интерфейс к возможностям сервера, а не его копия. Машиночитаемый контракт целиком лежит в [`plugins/all-metrics/compatibility.json`](plugins/all-metrics/compatibility.json), он же используется тестами и CI.
@@ -38,7 +38,7 @@
 
 ## Расширение 3.9.0
 
-В MCP 3.9.0 зарегистрировано 96 инструментов (на три больше, чем в плагине 3.8.1). Добавлены `google_ads_api_schema`, `google_ads_api_read`, `google_ads_write`; все три проверяются через фактический `tools/list`. Для Google Ads write не нужен внутренний AllMetrics grant, но нужны права провайдера и явный пользовательский запрос. `validateOnly` не заменяет реальную проверку результата. `outcome_unknown` нельзя автоматически повторять. Запись GTM и Localo следует отдельным механизмам разрешений. Версия плагина независима от версии MCP.
+В MCP 3.9.0 зарегистрировано 96 инструментов (на три больше, чем в плагине 3.8.1). Добавлены `google_ads_api_schema`, `google_ads_api_read`, `google_ads_write`; все три проверяются через фактический `tools/list`. Для Google Ads write не нужен внутренний AllMetrics grant, но нужны права провайдера и явный пользовательский запрос. `validateOnly` не заменяет реальную проверку результата. `outcome_unknown` нельзя автоматически повторять. GTM/Google tag с сервера 3.10.1 используют подключение Google без grants; Localo сохраняет отдельные разрешения. Версия плагина независима от версии MCP.
 
 ## Определение возможностей во время работы
 
